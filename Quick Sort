@@ -1,0 +1,106 @@
+/*
+    author : ajoy nath
+    email : ajoynathiiuc@gamil.com
+    !a good programmer,who can't fixed bug,can you?
+*/
+//**Quick Sort**
+
+#include<bits/stdc++.h>
+#define ll long long
+#define pb push_back
+#define ff first
+#define ss second
+const int N = 100005;
+const int INF = 1e9 + 7;
+using namespace std;
+vector<int>adj[N];
+#define fr(i,n) for(int i = 0; i <= n ; i++)
+int node,edge;
+#define mod 1000000007;
+
+typedef vector<int> vi;
+typedef vector<ll> vl;
+typedef vector<vi> vvi;//vector<vector<int>>vvi;
+typedef vector<vl> vvl;//vector<vector<long long,long long>>vvl;
+typedef pair<int,int> pii;//
+typedef pair<double, double> pdd;//vector<pair<double,double>>pdd
+typedef pair<ll, ll> pll;//vector<pair<long long,long long>>pll;
+typedef vector<pii> vii;//vector<pair<int,int>>vii;
+typedef vector<pll> vll;//vector<pair<ll,ll>>vll;
+typedef double dl;
+
+#define endl '\n'
+#define pb push_back
+#define F first
+#define S second
+#define all(a) (a).begin(),(a).end()
+#define rall(a) (a).rbegin(),(a).rend()
+#define sz(x) (int)x.size()
+const double PI = acos(-1);
+const double eps = 1e-9;
+const int inf = 2000000000;
+const ll infLL = 9000000000000000000;
+void debug()
+{
+    cout<<"#BUG"<<"\n";
+}
+void fastIO()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+}
+int partition(vector<int>&vec,int lb,int ub)
+{
+    int pivot = vec[lb];
+    int start = lb;
+    int end = ub;
+    while(start < end)
+    {
+        while(vec[start] <= pivot)
+        {
+            start++;
+        }
+        while(vec[end] > pivot)
+        {
+            end--;
+        }
+        if(start < end)
+        {
+            swap(vec[start],vec[end]);
+        }
+    }
+    swap(vec[end],vec[lb]);
+    return end;//end position
+}
+void qs(vector<int>&vec,int lb,int ub)
+{
+    if(lb < ub)
+    {
+        int index = partition(vec,lb,ub);
+        qs(vec,lb,index-1);
+        qs(vec,index+1,ub);
+    }
+}
+void solve()
+{
+    int n;
+    cin>>n;
+    vi vec(n);
+    for(int i = 0 ;  i < n ; i++)
+    {
+        cin>>vec[i];
+    }
+    int lb = 0;
+    int ub = n-1;
+    qs(vec,lb,ub);
+    for(auto i : vec)
+    {
+        cout<<i<<" ";
+    }
+}
+
+int main()
+{
+    fastIO();
+    solve();
+}
