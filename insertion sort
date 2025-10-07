@@ -4,6 +4,7 @@ using namespace std;
 void insertion_sort(vector<int>&vec)
 {
     int i,j,item;
+    int n = vec.size();
     for(int i = 1 ; i < n ; i++)
     {
         item = vec[i];
@@ -31,3 +32,28 @@ int main()
         cout<<vec[i]<<" ";
     }
 }
+
+
+/*
+Time complexity : 
+
+Case	  Time Complexity	Condition
+Best	  O(n)	            Already sorted array
+Average	  O(n²)	            Random order
+Worst	  O(n²)	            Reverse sorted
+
+
+
+Space Complexity : 
+
+Case	  Space Complexity	   Condition
+Best	  O(1)	               Already sorted array
+Average	  O(1)	               Random order
+Worst	  O(1)	               Reverse sorted
+
+
+ 
+Processor : Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz (1.80 GHz)
+RAM : 8GB DDR4
+Operating System : Windows 11 Pro 64 bit
+*/
